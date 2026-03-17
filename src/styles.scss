@@ -5,6 +5,7 @@ body{
 *{
     color: white;
     font-family: 'Courier New', Courier, monospace;
+    color: #505050;
 }
 form{
     display: flex;
@@ -14,7 +15,7 @@ form{
     width: 200px;
 }
 input, textarea, select{
-    background-color: #202020 !important;
+    background-color:transparent !important;
     color: #808080;
     border: solid 1px #707070;
     padding: 0.25rem;

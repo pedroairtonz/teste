@@ -1,1 +1,34 @@
 <p>products works!</p>
+<div class="filtros">
+    <input type="text" placeholder="Buscar">
+    <select name="" id="">
+        <option value="" selected disabled>Categorias</option>
+        @for (category of categories; track category.id) {
+            <option [value]="category.id" [disabled]="category.products_count === 0">{{ category.name }} ({{ category.products_count }})</option>
+        }
+    </select>
+</div>
+<table>
+    <thead>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+    </thead>
+    <tbody>
+        @for (product of products; track product.id) {
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>
+                    <button>Dados</button>
+                    <button (click)="openEditDialog(product.id)">Editar</button>
+                    <button>Remover</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
