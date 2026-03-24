@@ -3,6 +3,7 @@ import { Category, Product } from '../../models/product.model';
 import { ApiService } from '../../services/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProductComponent } from '../../dialog/products/edit-product/edit-product.component';
+import { ChartsProductComponent } from '../../dialog/products/charts-product/charts-product.component';
 
 @Component({
   selector: 'app-products',
@@ -54,6 +55,14 @@ export class ProductsComponent {
     const dialogRef = this.dialog.open(EditProductComponent, {
       data: { idProduct: idProduct }
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog fechado');
+    })
+  }
+  openChartDialog(idProduct: number){
+    const dialogRef = this.dialog.open(ChartsProductComponent, {
+      data: { idProduct: idProduct }
+    })
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog fechado');
     })

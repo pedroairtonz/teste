@@ -1,1 +1,16 @@
-<p>reports works!</p>
+<article class="page-reports">
+    <form (ngSubmit)="submit()" [formGroup]="range">
+        <mat-form-field>
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input formControlName="start_date" matStartDate placeholder="Start date">
+                <input formControlName="end_date" matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        <button type="submit">Enviar</button>
+    </form>
+    <span>{{ range.value | json }}</span>
+</article>
