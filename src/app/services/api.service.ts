@@ -23,4 +23,7 @@ export class ApiService {
   getReports(params: {start_date?: string, end_date?: string}): Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/reports`, {params});
   }
+  getOrders(params?: any): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/orders`, {params});
+  }
 }
